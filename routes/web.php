@@ -27,11 +27,12 @@ Route::group(['namespace' => 'Blog'], static function () {
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], static function () {
     Route::group(['namespace' => 'Blog'], static function () {
-        Route::get('/', 'IndexController');
+        Route::get('/', 'IndexController')->name('admin');
     });
 
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], static function () {
-        Route::get('/', 'IndexController')->name('admin.categories.index');
+        Route::get('/', 'IndexController')->name('admin.category.index');
+        Route::get('/create', 'CreateController')->name('admin.category.create');
     });
 });
 

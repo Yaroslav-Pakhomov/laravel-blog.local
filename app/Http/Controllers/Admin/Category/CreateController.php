@@ -9,10 +9,10 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
-class IndexController extends Controller
+class CreateController extends Controller
 {
     public function __invoke(): Factory|View|Application
     {
-        return view('admin.categories.index');
+        return view('admin.categories.create');
     }
 }
