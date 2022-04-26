@@ -33,6 +33,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], static function () {
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], static function () {
         Route::get('/', 'IndexController')->name('admin.category.index');
         Route::get('/create', 'CreateController')->name('admin.category.create');
+        Route::post('/', 'StoreController')->name('admin.category.store');
     });
 });
 

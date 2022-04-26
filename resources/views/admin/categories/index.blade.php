@@ -26,7 +26,9 @@
                 <!-- Info boxes -->
                 <div class="row">
                     <div class="col-3">
-                        <a href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary">Добавить категорию</a>
+                        <a href="{{ route('admin.category.create') }}" class="btn btn-block btn-primary">
+                            Добавить категорию
+                        </a>
                     </div>
                     <div class="col-12">
                         Категории

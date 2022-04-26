@@ -27,9 +27,17 @@
                 <div class="row">
 
                     <div class="col-12">
-                        <form class="w-25" action="#" method="post">
+                        <form class="w-25" action="{{ route('admin.category.store') }}" method="POST">
+                            @csrf
                             <div class="form-group">
-                                <input class="form-control" type="text" name="title" placeholder="Введите название">
+                                <label>
+                                    <input class="form-control" type="text" name="title" placeholder="Введите название">
+                                </label>
+                                @error('title')
+                                <div class="text-danger">
+                                    Это поле необходимо заполнить.
+                                </div>
+                                @enderror
                             </div>
 
                             <div>
