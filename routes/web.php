@@ -29,6 +29,10 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], static function () {
     Route::group(['namespace' => 'Blog'], static function () {
         Route::get('/', 'IndexController');
     });
+
+    Route::group(['namespace' => 'Category', 'prefix' => 'categories'], static function () {
+        Route::get('/', 'IndexController')->name('admin.categories.index');
+    });
 });
 
 Auth::routes();
