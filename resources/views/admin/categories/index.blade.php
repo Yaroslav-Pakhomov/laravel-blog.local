@@ -61,9 +61,14 @@
                                                 </a>
                                             </td>
                                             <td class="text-center">
-                                                <a href="#">
-                                                    <i class="fas fa-solid fa-trash"></i>
-                                                </a>
+                                                <form action="{{ route('admin.category.delete', $category->id) }}"
+                                                      method="POST" class="w-auto">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-danger border-0 bg-transparent">
+                                                        <i class="fas fa-solid fa-trash"></i>
+                                                    </button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
