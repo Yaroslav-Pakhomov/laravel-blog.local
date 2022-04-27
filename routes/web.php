@@ -30,6 +30,17 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], static function () {
         Route::get('/', 'IndexController')->name('admin');
     });
 
+    // Post
+    Route::group(['namespace' => 'Post', 'prefix' => 'post'], static function () {
+        Route::get('/', 'IndexController')->name('admin.post.index');
+        Route::get('/create', 'CreateController')->name('admin.post.create');
+        Route::post('/', 'StoreController')->name('admin.post.store');
+        Route::get('/{post}', 'ShowController')->name('admin.post.show');
+        Route::get('/{post}/edit', 'EditController')->name('admin.post.edit');
+        Route::patch('/{post}', 'UpdateController')->name('admin.post.update');
+        Route::delete('/{post}', 'DeleteController')->name('admin.post.delete');
+    });
+
     // Category
     Route::group(['namespace' => 'Category', 'prefix' => 'categories'], static function () {
         Route::get('/', 'IndexController')->name('admin.category.index');
@@ -41,7 +52,7 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], static function () {
         Route::delete('/{category}', 'DeleteController')->name('admin.category.delete');
     });
 
-    //Tag
+    // Tag
     Route::group(['namespace' => 'Tag', 'prefix' => 'tags'], static function () {
         Route::get('/', 'IndexController')->name('admin.tag.index');
         Route::get('/create', 'CreateController')->name('admin.tag.create');
@@ -51,6 +62,8 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], static function () {
         Route::patch('/{tag}', 'UpdateController')->name('admin.tag.update');
         Route::delete('/{tag}', 'DeleteController')->name('admin.tag.delete');
     });
+
+
 });
 
 Auth::routes();
