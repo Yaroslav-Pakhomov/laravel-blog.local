@@ -41,7 +41,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Название</th>
-                                        <th>Действия</th>
+                                        <th colspan="3" class="text-center">Действия</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -49,9 +49,19 @@
                                         <tr>
                                             <td>{{ $category->id }}</td>
                                             <td>{{ $category->title }}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <a href="{{ route('admin.category.show', $category->id) }}">
                                                     <i class="fas fa-regular fa-eye"></i>
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="{{ route('admin.category.edit', $category->id) }}">
+                                                    <i class="fas fa-solid fa-pen"></i>
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <a href="#">
+                                                    <i class="fas fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
