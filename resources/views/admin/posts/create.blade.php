@@ -26,12 +26,13 @@
                 <!-- Info boxes -->
                 <div class="row">
 
-                    <div class="col-12">
-                        <form class="w-25" action="{{ route('admin.post.store') }}" method="POST">
+                    <div class="col-12 w-25">
+                        <form action="{{ route('admin.post.store') }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label>
-                                    <input class="form-control" type="text" name="title" placeholder="Введите название">
+                                    <input class="form-control" type="text" name="title" placeholder="Введите название"
+                                           value="{{ old('title') }}">
                                 </label>
                                 @error('title')
                                 <div class="text-danger">
@@ -39,8 +40,18 @@
                                 </div>
                                 @enderror
                             </div>
+                            <div class="form-group">
+                                <textarea id="summernote" name="content">
+                                    {{ old('title') }}
+                                </textarea>
+                                @error('content')
+                                <div class="text-danger">
+                                    Это поле необходимо заполнить.
+                                </div>
+                                @enderror
+                            </div>
 
-                            <div>
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Добавить</button>
                             </div>
                         </form>

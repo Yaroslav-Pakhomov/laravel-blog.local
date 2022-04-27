@@ -25,11 +25,13 @@ class StoreRequest extends FormRequest
      * @return array
      */
     #[ArrayShape([
-        'title' => "string"
+        'title'   => "string",
+        'content' => "string"
     ])] public function rules(): array
     {
         return [
-            'title' => 'required|string',
+            'title'   => 'required|string',
+            'content' => 'required|string',
         ];
     }
 }
