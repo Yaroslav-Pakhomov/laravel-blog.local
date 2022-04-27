@@ -27,10 +27,9 @@
                 <div class="row">
 
                     <div class="col-12">
-                        {{--                        {{ route('admin.category.update') }}--}}
-                        <form class="w-25" action="#" method="POST">
+                        <form class="w-25" action="{{ route('admin.category.update', $category->id) }}" method="POST">
                             @csrf
-                            @method('patch')
+                            @method('PATCH')
                             <div class="form-group">
                                 <label>
                                     <input class="form-control" type="text" name="title" placeholder="Введите название"

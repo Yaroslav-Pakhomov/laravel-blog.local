@@ -55,7 +55,8 @@
                                                 </a>
                                             </td>
                                             <td class="text-center">
-                                                <a href="{{ route('admin.category.edit', $category->id) }}">
+                                                <a href="{{ route('admin.category.edit', $category->id) }}"
+                                                   class="text-success">
                                                     <i class="fas fa-solid fa-pen"></i>
                                                 </a>
                                             </td>
