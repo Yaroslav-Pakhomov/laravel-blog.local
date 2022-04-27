@@ -69,6 +69,8 @@
 <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('dist/js/adminlte.js') }}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{ asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js') }}"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
@@ -86,6 +88,7 @@
 <script>
     $(document).ready(function() {
         $('#summernote').summernote({
+            height:200,
             toolbar: [
                 // [groupName, [list of button]]
                 ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -96,6 +99,9 @@
                 ['height', ['height']]
             ]
         });
+    });
+    $(function () {
+        bsCustomFileInput.init();
     });
 </script>
 </body>
