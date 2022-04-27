@@ -28,7 +28,8 @@ class StoreRequest extends FormRequest
         'title'         => "string",
         'content'       => "string",
         'preview_image' => "string",
-        'main_image'    => "string"
+        'main_image'    => "string",
+        'category_id'   => "string"
     ])] public function rules(): array
     {
         return [
@@ -36,6 +37,7 @@ class StoreRequest extends FormRequest
             'content'       => 'required|string',
             'preview_image' => 'required|file',
             'main_image'    => 'required|file',
+            'category_id'   => 'required|exists:categories,id',
         ];
     }
 }

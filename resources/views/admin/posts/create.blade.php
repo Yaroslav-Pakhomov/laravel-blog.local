@@ -56,24 +56,54 @@
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="preview_image">
-                                        <label class="custom-file-label" >Выбрать изображение</label>
+                                        <label class="custom-file-label">Выбрать изображение</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Загрузить</span>
                                     </div>
                                 </div>
+                                @error('preview_image')
+                                <div class="text-danger">
+                                    Это поле необходимо заполнить.
+                                </div>
+                                @enderror
                             </div>
                             <div class="form-group w-50">
                                 <label>Добавить главное изображение</label>
                                 <div class="input-group">
                                     <div class="custom-file">
                                         <input type="file" class="custom-file-input" name="main_image">
-                                        <label class="custom-file-label" >Выбрать изображение</label>
+                                        <label class="custom-file-label">Выбрать изображение</label>
                                     </div>
                                     <div class="input-group-append">
                                         <span class="input-group-text">Загрузить</span>
                                     </div>
                                 </div>
+                                @error('main_image')
+                                <div class="text-danger">
+                                    Это поле необходимо заполнить.
+                                </div>
+                                @enderror
+                            </div>
+                            <!-- select -->
+                            <div class="form-group">
+                                <div>
+                                    <label>Выберите категорию</label>
+                                </div>
+                                <label class="w-50">
+                                    <select name="category_id" class="form-control">
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}"
+                                            {{ $category->id === old('category_id') ? 'selected' : ''}}
+                                            >{{ $category->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
+                                @error('category_id')
+                                <div class="text-danger">
+                                    Это поле необходимо заполнить.
+                                </div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
