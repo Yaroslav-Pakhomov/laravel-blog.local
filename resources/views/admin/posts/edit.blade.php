@@ -37,7 +37,7 @@
                                 </label>
                                 @error('title')
                                 <div class="text-danger">
-                                    Это поле необходимо заполнить.
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -48,7 +48,7 @@
                                 </textarea>
                                 @error('content')
                                 <div class="text-danger">
-                                    Это поле необходимо заполнить.
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -68,7 +68,7 @@
                                 </div>
                                 @error('preview_image')
                                 <div class="text-danger">
-                                    Это поле необходимо заполнить.
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -88,7 +88,7 @@
                                 </div>
                                 @error('main_image')
                                 <div class="text-danger">
-                                    Это поле необходимо заполнить.
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -108,7 +108,7 @@
                                 </label>
                                 @error('category_id')
                                 <div class="text-danger">
-                                    Это поле необходимо заполнить.
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
@@ -127,6 +127,11 @@
                                         @endforeach
                                     </select>
                                 </label>
+                                @error('tag_ids')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
                             </div>
 
                             <div class="form-group">

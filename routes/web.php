@@ -62,8 +62,6 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], static function () {
         Route::patch('/{tag}', 'UpdateController')->name('admin.tag.update');
         Route::delete('/{tag}', 'DeleteController')->name('admin.tag.delete');
     });
-
-
 });
 
 Auth::routes();
