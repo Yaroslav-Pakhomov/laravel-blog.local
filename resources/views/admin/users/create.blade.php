@@ -65,8 +65,9 @@
                                 <div>
                                     <label>Выберите роль</label>
                                 </div>
-                                <label class="w-50">
+                                <label>
                                     <select name="role" class="form-control">
+                                        <option value="">Список ролей</option>
                                         @foreach($roles as $id => $role)
                                             <option value="{{ $id }}"
                                                 {{ $id === old('role_id') ? 'selected' : ''}}

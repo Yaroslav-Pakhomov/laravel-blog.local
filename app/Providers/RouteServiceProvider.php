@@ -21,6 +21,13 @@ class RouteServiceProvider extends ServiceProvider
      */
 
     /**
+     * The path to the "home" route for your application.
+     *
+     * @var string
+     */
+    public const HOME = '/home';
+
+    /**
      * The controller namespace for the application.
      *
      * When present, controller route declarations will automatically be prefixed with this namespace.
@@ -34,7 +41,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->configureRateLimiting();
 

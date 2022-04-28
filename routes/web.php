@@ -25,7 +25,7 @@ Route::group(['namespace' => 'Blog'], static function () {
     Route::get('/', 'IndexController');
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], static function () {
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin']], static function () {
     Route::group(['namespace' => 'Blog'], static function () {
         Route::get('/', 'IndexController')->name('admin');
     });

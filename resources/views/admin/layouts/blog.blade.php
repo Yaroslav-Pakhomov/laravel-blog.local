@@ -29,13 +29,22 @@
     </div>
 
     <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-dark">
+    <nav class="main-header navbar navbar-expand navbar-dark ">
         <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-        </ul>
+        <div class="col-12 d-flex justify-content-between">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <input class="btn btn-outline-primary" type="submit" value="Выйти">
+                </form>
+            </ul>
+        </div>
 
     </nav>
     <!-- /.navbar -->
@@ -91,9 +100,9 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{--<script src="{{ asset('' }}dist/js/pages/dashboard2.js"></script>--}}
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('#summernote').summernote({
-            height:200,
+            height: 200,
             toolbar: [
                 // [groupName, [list of button]]
                 ['style', ['bold', 'italic', 'underline', 'clear']],
@@ -112,7 +121,7 @@
     });
 </script>
 <style>
-    .custom-file-input:lang(en)~.custom-file-label:after {
+    .custom-file-input:lang(en) ~ .custom-file-label:after {
         content: 'Обзор...';
     }
 </style>
