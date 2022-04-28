@@ -12,7 +12,8 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('admin') }}">Админ</a></li>
-                            <li class="breadcrumb-item active"><a href="{{ route('admin.user.index') }}">Пользователи</a></li>
+                            <li class="breadcrumb-item active"><a
+                                    href="{{ route('admin.user.index') }}">Пользователи</a></li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -35,7 +36,28 @@
                                 </label>
                                 @error('name')
                                 <div class="text-danger">
-                                    Это поле необходимо заполнить.
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input class="form-control" type="text" name="email" placeholder="Введите email">
+                                </label>
+                                @error('email')
+                                <div class="text-danger">
+                                    {{ $message }}
+                                </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label>
+                                    <input class="form-control" type="text" name="password"
+                                           placeholder="Введите пароль">
+                                </label>
+                                @error('password')
+                                <div class="text-danger">
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>
