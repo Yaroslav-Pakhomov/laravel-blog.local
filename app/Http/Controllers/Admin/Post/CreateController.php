@@ -11,7 +11,7 @@ use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
-class CreateController extends Controller
+class CreateController extends BaseController
 {
     public function __invoke(): Factory|View|Application
     {

@@ -13,7 +13,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Storage;
 
-class EditController extends Controller
+class EditController extends BaseController
 {
     public function __invoke(Post $post): Factory|View|Application
     {
