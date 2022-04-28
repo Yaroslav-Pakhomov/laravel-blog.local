@@ -29,7 +29,9 @@ class StoreRequest extends FormRequest
         'content'       => "string",
         'preview_image' => "string",
         'main_image'    => "string",
-        'category_id'   => "string"
+        'category_id'   => "string",
+        'tag_ids'       => "string",
+        'tag_ids.*'     => "string"
     ])] public function rules(): array
     {
         return [
@@ -37,7 +39,9 @@ class StoreRequest extends FormRequest
             'content'       => 'required|string',
             'preview_image' => 'required|file',
             'main_image'    => 'required|file',
-            'category_id'   => 'required|exists:categories,id',
+            'category_id'   => 'required|integer|exists:categories,id',
+            'tag_ids'       => 'nullable|array',
+            'tag_ids.*'     => 'nullable|integer|exists:tags,id',
         ];
     }
 }

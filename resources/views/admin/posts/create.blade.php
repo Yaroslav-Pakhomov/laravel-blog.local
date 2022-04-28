@@ -43,7 +43,7 @@
                             <div class="form-group">
                                 <label for="summernote">Текст поста</label>
                                 <textarea id="summernote" name="content">
-                                    {{ old('title') }}
+                                    {{ old('content') }}
                                 </textarea>
                                 @error('content')
                                 <div class="text-danger">
@@ -94,7 +94,7 @@
                                     <select name="category_id" class="form-control">
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}"
-                                            {{ $category->id === old('category_id') ? 'selected' : ''}}
+                                                {{ $category->id === old('category_id') ? 'selected' : ''}}
                                             >{{ $category->title }}</option>
                                         @endforeach
                                     </select>
@@ -104,6 +104,22 @@
                                     Это поле необходимо заполнить.
                                 </div>
                                 @enderror
+                            </div>
+                            <div class="form-group">
+                                <div>
+                                    <label>Выберите теги</label>
+                                </div>
+                                <label class="w-50">
+                                    <select class="select2" name="tag_ids[]" multiple="multiple"
+                                            data-placeholder="Выберите теги"
+                                            style="width: 100%;">
+                                        @foreach($tags as $tag)
+                                            <option value="{{ $tag->id }}"
+                                                {{ is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids'), false)  ? 'selected' : '' }}
+                                            >{{ $tag->title }}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
                             </div>
 
                             <div class="form-group">

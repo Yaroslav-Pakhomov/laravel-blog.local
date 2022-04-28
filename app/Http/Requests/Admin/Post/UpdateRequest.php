@@ -24,14 +24,16 @@ class UpdateRequest extends FormRequest
      *
      * @return array
      */
-    #[ArrayShape([
-        'title'   => "string",
-        'content' => "string"
-    ])] public function rules(): array
+    public function rules(): array
     {
         return [
             'title'   => 'required|string',
             'content' => 'required|string',
+            'preview_image' => 'nullable|file',
+            'main_image'    => 'nullable|file',
+            'category_id'   => 'required|integer|exists:categories,id',
+            'tag_ids'       => 'nullable|array',
+            'tag_ids.*'     => 'nullable|integer|exists:tags,id',
         ];
     }
 }
