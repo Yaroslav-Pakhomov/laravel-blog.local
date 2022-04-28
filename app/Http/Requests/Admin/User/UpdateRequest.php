@@ -7,6 +7,9 @@ namespace App\Http\Requests\Admin\User;
 use Illuminate\Foundation\Http\FormRequest;
 use JetBrains\PhpStorm\ArrayShape;
 
+/**
+ * @property mixed $user_id
+ */
 class UpdateRequest extends FormRequest
 {
     /**
@@ -25,13 +28,17 @@ class UpdateRequest extends FormRequest
      * @return array
      */
     #[ArrayShape([
-        'name'  => "string",
-        'email' => "string"
+        'name'    => "string",
+        'email'   => "string",
+        'user_id' => "string",
+        'role'    => "string"
     ])] public function rules(): array
     {
         return [
-            'name'  => 'required|string',
-            'email' => 'required|string|email|unique:users',
+            'name'    => 'required|string',
+            'email'   => 'required|string|email|unique:users,email,' . $this->user_id,
+            'user_id' => 'required|integer|exists:users,id',
+            'role'    => 'required|integer',
         ];
     }
 

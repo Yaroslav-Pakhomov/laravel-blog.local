@@ -14,6 +14,8 @@ class EditController extends Controller
 {
     public function __invoke(User $user): Factory|View|Application
     {
-        return view('admin.users.edit', compact('user'));
+        $roles = User::getRoles();
+
+        return view('admin.users.edit', compact('user', 'roles'));
     }
 }

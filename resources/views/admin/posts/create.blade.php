@@ -105,6 +105,7 @@
                                 </div>
                                 @enderror
                             </div>
+                            <!-- select -->
                             <div class="form-group">
                                 <div>
                                     <label>Выберите теги</label>
