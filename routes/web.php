@@ -25,9 +25,32 @@ Route::group(['namespace' => 'Blog'], static function () {
     Route::get('/', 'IndexController');
 });
 
+// Личный кабинет пользователя
+Route::group(
+    ['namespace' => 'Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']],
+    static function () {
+        // Main
+        Route::group(['namespace' => 'Blog'], static function () {
+            Route::get('/', 'IndexController')->name('personal');
+        });
+
+        // Liked
+        Route::group(['namespace' => 'Liked', 'prefix'=>'liked'], static function () {
+            Route::get('/', 'IndexController')->name('personal.liked.index');
+        });
+
+        // Comment
+        Route::group(['namespace' => 'Comment', 'prefix'=>'comment'], static function () {
+            Route::get('/', 'IndexController')->name('personal.comment.index');
+        });
+    }
+);
+
+// Admin панель
 Route::group(
     ['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']],
     static function () {
+        // Main
         Route::group(['namespace' => 'Blog'], static function () {
             Route::get('/', 'IndexController')->name('admin');
         });
