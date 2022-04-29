@@ -39,10 +39,12 @@
             </ul>
 
             <ul class="navbar-nav">
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <input class="btn btn-outline-primary" type="submit" value="Выйти">
-                </form>
+                <li>
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <input class="btn btn-outline-primary" type="submit" value="Выйти">
+                    </form>
+                </li>
             </ul>
         </div>
 
