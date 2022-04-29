@@ -1,12 +1,15 @@
 <?php
 
+declare(strict_types = 1);
+
 namespace App\Mail\User;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class PasswordMail extends Mailable
+class PasswordMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
 
