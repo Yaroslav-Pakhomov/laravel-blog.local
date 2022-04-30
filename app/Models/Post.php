@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static firstOrCreate(mixed $data)
+ * @property mixed $id
  */
 class Post extends Model
 {

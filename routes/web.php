@@ -35,12 +35,13 @@ Route::group(
         });
 
         // Liked
-        Route::group(['namespace' => 'Liked', 'prefix'=>'liked'], static function () {
+        Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], static function () {
             Route::get('/', 'IndexController')->name('personal.liked.index');
+            Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
         });
 
         // Comment
-        Route::group(['namespace' => 'Comment', 'prefix'=>'comment'], static function () {
+        Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], static function () {
             Route::get('/', 'IndexController')->name('personal.comment.index');
         });
     }
