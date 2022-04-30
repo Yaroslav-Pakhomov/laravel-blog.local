@@ -25,7 +25,47 @@
             <div class="container-fluid">
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
-
+                    <div class="col-6">
+                        <div class="card">
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Комментарий</th>
+                                        <th colspan="2" class="text-center">Действия</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    @foreach($comments as $comment)
+                                        <tr>
+                                            <td>{{ $comment->id }}</td>
+                                            <td>{{ $comment->message }}</td>
+                                            <td class="text-center">
+                                                <a href="{{ route('personal.comment.edit', $comment->id) }}"
+                                                   class="text-success">
+                                                    <i class="fas fa-solid fa-pen"></i>
+                                                </a>
+                                            </td>
+                                            <td class="text-center">
+                                                <form action="{{ route('personal.comment.delete', $comment->id) }}"
+                                                      method="POST" class="w-auto">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="text-danger border-0 bg-transparent">
+                                                        <i class="fas fa-solid fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                    </div>
                 </div>
                 <!-- /.row -->
             </div><!--/. container-fluid -->
