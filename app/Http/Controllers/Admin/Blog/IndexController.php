@@ -22,7 +22,8 @@ class IndexController extends Controller
         $data['postsCount'] = Post::all()->count();
         $data['categoriesCount'] = Category::all()->count();
         $data['tagsCount'] = Tag::all()->count();
+        $dataUser = auth()->user();
 
-        return view('admin.blog.index', compact('data'));
+        return view('admin.blog.index', compact('data', 'dataUser'));
     }
 }

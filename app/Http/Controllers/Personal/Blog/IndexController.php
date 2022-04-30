@@ -13,9 +13,8 @@ class IndexController extends Controller
 {
     public function __invoke(): Factory|View|Application
     {
-        $data = [];
+        $dataUser = auth()->user();
 
-
-        return view('personal.blog.index', compact('data'));
+        return view('personal.blog.index', compact('dataUser'));
     }
 }

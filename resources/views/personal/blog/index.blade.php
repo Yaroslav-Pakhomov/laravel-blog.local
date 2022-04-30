@@ -12,7 +12,7 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ route('personal') }}">Главная</a></li>
-{{--                            <li class="breadcrumb-item active">Админ</li>--}}
+                            {{--                            <li class="breadcrumb-item active">Админ</li>--}}
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -23,6 +23,39 @@
         <!-- Main content -->
         <section class="content">
             <div class="container-fluid">
+            {{--                @dd($dataUser)--}}
+            <!-- Table data user -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Персональные данные</h3>
+                            </div>
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive p-0" style="height: auto;">
+                                <table class="table table-head-fixed text-nowrap">
+                                    <tbody>
+                                    <tr>
+                                        <td>ID</td>
+                                        <td>{{ $dataUser->id }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Имя</td>
+                                        <td>{{ $dataUser->name }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Почта</td>
+                                        <td>{{ $dataUser->email }}</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
+                        <!-- /.card -->
+                    </div>
+                </div>
+
                 <!-- Small boxes (Stat box) -->
                 <div class="row">
                     <div class="col-lg-3 col-6">
@@ -36,7 +69,8 @@
                             <div class="icon">
                                 <i class="nav-icon fas fa-regular fa-heart"></i>
                             </div>
-                            <a href="{{ route('personal.liked.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{ route('personal.liked.index') }}" class="small-box-footer">Подробнее <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
@@ -50,10 +84,11 @@
                                 <p>Комментарии</p>
                             </div>
                             <div class="icon">
-{{--                                <i class="nav-icon fas fa-solid fa-comment"></i>--}}
+                                {{--                                <i class="nav-icon fas fa-solid fa-comment"></i>--}}
                                 <i class="nav-icon fas fa-regular fa-comment"></i>
                             </div>
-                            <a href="{{ route('personal.comment.index') }}" class="small-box-footer">Подробнее <i class="fas fa-arrow-circle-right"></i></a>
+                            <a href="{{ route('personal.comment.index') }}" class="small-box-footer">Подробнее <i
+                                    class="fas fa-arrow-circle-right"></i></a>
                         </div>
                     </div>
                     <!-- ./col -->
