@@ -24,6 +24,10 @@ use Illuminate\Support\Facades\Route;
 Route::group(['namespace' => 'Blog'], static function () {
     Route::get('/', 'IndexController')->name('blog.index');
 });
+Route::group(['namespace' => 'Post', 'prefix' => 'posts'], static function () {
+    Route::get('/', 'IndexController')->name('post.index');
+    Route::get('/{post}', 'ShowController')->name('post.show');
+});
 
 // Личный кабинет пользователя
 Route::group(

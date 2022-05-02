@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -15,7 +16,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @method static paginate(int $int)
  * @method static get()
  * @method static withCount(string $string)
+ * @method static where(string $string, mixed $category_id)
  * @property mixed $id
+ * @property mixed $created_at
+ * @property mixed $category_id
  */
 class Post extends Model
 {
@@ -38,5 +42,10 @@ class Post extends Model
     public function likedUsers(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'post_user_likes', 'post_id', 'user_id');
+    }
+
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class, 'post_id', 'id');
     }
 }
