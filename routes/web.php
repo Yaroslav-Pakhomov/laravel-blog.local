@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::group(['namespace' => 'Blog'], static function () {
-    Route::get('/', 'IndexController');
+    Route::get('/', 'IndexController')->name('blog.index');
 });
 
 // Личный кабинет пользователя
