@@ -21,12 +21,20 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
+// Главная страница
 Route::group(['namespace' => 'Blog'], static function () {
     Route::get('/', 'IndexController')->name('blog.index');
 });
+
+// Раздел Блог
 Route::group(['namespace' => 'Post', 'prefix' => 'posts'], static function () {
     Route::get('/', 'IndexController')->name('post.index');
     Route::get('/{post}', 'ShowController')->name('post.show');
+
+    // Вложенность комментария - posts/2/comments
+    Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], static function () {
+        Route::post('/', 'StoreController')->name('post.comment.store');
+    });
 });
 
 // Личный кабинет пользователя
@@ -71,7 +79,7 @@ Route::group(
             Route::get('/{post}', 'ShowController')->name('admin.post.show');
             Route::get('/{post}/edit', 'EditController')->name('admin.post.edit');
             Route::patch('/{post}', 'UpdateController')->name('admin.post.update');
-            Route::delete('/{post}', 'DeleteController')->name('admin.post.delete');
+            Route::delete('/{post}', 'StoreController')->name('admin.post.delete');
         });
 
         // Category
@@ -82,7 +90,7 @@ Route::group(
             Route::get('/{category}', 'ShowController')->name('admin.category.show');
             Route::get('/{category}/edit', 'EditController')->name('admin.category.edit');
             Route::patch('/{category}', 'UpdateController')->name('admin.category.update');
-            Route::delete('/{category}', 'DeleteController')->name('admin.category.delete');
+            Route::delete('/{category}', 'StoreController')->name('admin.category.delete');
         });
 
         // Tag
@@ -93,7 +101,7 @@ Route::group(
             Route::get('/{tag}', 'ShowController')->name('admin.tag.show');
             Route::get('/{tag}/edit', 'EditController')->name('admin.tag.edit');
             Route::patch('/{tag}', 'UpdateController')->name('admin.tag.update');
-            Route::delete('/{tag}', 'DeleteController')->name('admin.tag.delete');
+            Route::delete('/{tag}', 'StoreController')->name('admin.tag.delete');
         });
 
         // User
@@ -104,7 +112,7 @@ Route::group(
             Route::get('/{user}', 'ShowController')->name('admin.user.show');
             Route::get('/{user}/edit', 'EditController')->name('admin.user.edit');
             Route::patch('/{user}', 'UpdateController')->name('admin.user.update');
-            Route::delete('/{user}', 'DeleteController')->name('admin.user.delete');
+            Route::delete('/{user}', 'StoreController')->name('admin.user.delete');
         });
     }
 );

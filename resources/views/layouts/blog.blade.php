@@ -23,9 +23,28 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="edicaMainNav">
+{{--                @dd(auth()->user()->role)--}}
                 <ul class="navbar-nav mx-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ route('blog.index') }}">Блог</a>
+                    </li>
+                    <li class="nav-item active">
+                        @auth()
+                            <a class="nav-link" href="{{ (int)auth()->user()->role === 1 ? route('personal') : route('admin') }}">
+                                {{ (int)auth()->user()->role === 1 ? "Личный кабинет" : "Админ панель" }}
+                            </a>
+                        @endauth
+                        @guest()
+                            <a class="nav-link" href="{{ route('personal') }}">Войти</a>
+                        @endguest
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <input class="btn btn-outline-primary" type="submit" value="Выйти">
+                        </form>
                     </li>
                 </ul>
             </div>
