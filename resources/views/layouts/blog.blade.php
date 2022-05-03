@@ -29,6 +29,9 @@
                         <a class="nav-link" href="{{ route('blog.index') }}">Блог</a>
                     </li>
                     <li class="nav-item active">
+                        <a class="nav-link" href="{{ route('category.index') }}">Категории</a>
+                    </li>
+                    <li class="nav-item active">
                         @auth()
                             <a class="nav-link" href="{{ (int)auth()->user()->role === 1 ? route('personal') : route('admin') }}">
                                 {{ (int)auth()->user()->role === 1 ? "Личный кабинет" : "Админ панель" }}
@@ -67,8 +70,8 @@
 {{--    </div>--}}
 {{--</section>--}}
 
-<footer class="edica-footer" data-aos="fade-up">
-    <div class="container">
+<footer class="edica-footer" data-aos="fade-up" style="margin-top: 50px;>
+    <div class="container" >
         <div class="row footer-widget-area">
             <div class="col-md-3">
                 <a href="index.html" class="footer-brand-wrapper">

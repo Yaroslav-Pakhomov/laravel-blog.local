@@ -35,6 +35,19 @@ Route::group(['namespace' => 'Post', 'prefix' => 'posts'], static function () {
     Route::group(['namespace' => 'Comment', 'prefix' => '{post}/comments'], static function () {
         Route::post('/', 'StoreController')->name('post.comment.store');
     });
+    // Вложенность лайков
+    Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], static function () {
+        Route::post('/', 'StoreController')->name('post.like.store');
+    });
+});
+
+// Раздел Категории
+Route::group(['namespace' => 'Category', 'prefix' => 'categories'], static function () {
+    Route::get('/', 'IndexController')->name('category.index');
+    // Вложенность комментариев
+    Route::group(['namespace' => 'Post', 'prefix' => '{category}/posts'], static function () {
+        Route::get('/', 'IndexController')->name('category.post.index');
+    });
 });
 
 // Личный кабинет пользователя

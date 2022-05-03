@@ -62,7 +62,7 @@
                         <!-- small box -->
                         <div class="small-box bg-info">
                             <div class="inner">
-                                <h3>12</h3>
+                                <h3>{{ $data['countPosts'] }}</h3>
 
                                 <p>Понравившиеся посты</p>
                             </div>
@@ -79,7 +79,7 @@
                         <div class="small-box bg-success">
                             <div class="inner">
 
-                                <h3>12{{--<sup style="font-size: 20px">%</sup>--}}</h3>
+                                <h3>{{ $data['countComments'] }}{{--<sup style="font-size: 20px">%</sup>--}}</h3>
 
                                 <p>Комментарии</p>
                             </div>
