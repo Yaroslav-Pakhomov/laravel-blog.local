@@ -29,7 +29,8 @@ class StoreRequest extends FormRequest
         'email' => "string",
         // 'password' => "string",
         'role'  => "string"
-    ])] public function rules(): array
+    ])]
+    public function rules(): array
     {
         return [
             'name'  => 'required|string',
@@ -48,7 +49,8 @@ class StoreRequest extends FormRequest
         'email.unique'   => "string",
         // 'password.required' => "string",
         // 'password.string'   => "string"
-    ])] public function messages(): array
+    ])]
+    public function messages(): array
     {
         return [
             'name.required'  => 'Это поле необходимо для заполнения.',

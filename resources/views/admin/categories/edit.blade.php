@@ -38,7 +38,7 @@
                                 </label>
                                 @error('title')
                                 <div class="text-danger">
-                                    Это поле необходимо заполнить.
+                                    {{ $message }}
                                 </div>
                                 @enderror
                             </div>

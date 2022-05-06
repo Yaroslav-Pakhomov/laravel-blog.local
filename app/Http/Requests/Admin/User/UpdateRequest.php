@@ -32,7 +32,8 @@ class UpdateRequest extends FormRequest
         'email'   => "string",
         'user_id' => "string",
         'role'    => "string"
-    ])] public function rules(): array
+    ])]
+    public function rules(): array
     {
         return [
             'name'    => 'required|string',
@@ -49,7 +50,8 @@ class UpdateRequest extends FormRequest
         'email.string'   => "string",
         'email.email'    => "string",
         'email.unique'   => "string",
-    ])] public function messages(): array
+    ])]
+    public function messages(): array
     {
         return [
             'name.required'  => 'Это поле необходимо для заполнения.',

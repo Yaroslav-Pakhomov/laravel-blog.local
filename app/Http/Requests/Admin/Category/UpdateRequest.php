@@ -26,10 +26,23 @@ class UpdateRequest extends FormRequest
      */
     #[ArrayShape([
         'title' => "string"
-    ])] public function rules(): array
+    ])]
+    public function rules(): array
     {
         return [
             'title' => 'required|string',
+        ];
+    }
+
+    #[ArrayShape([
+        'title.required' => "string",
+        'title.string'   => "string"
+    ])]
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Это поле необходимо для заполнения.',
+            'title.string'   => 'Данные должны соответствовать строчному типу.',
         ];
     }
 }
