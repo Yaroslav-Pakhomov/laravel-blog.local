@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <script src="{{ asset('assets/vendors/jquery/jquery.min.js') }} "></script>
     <script src="{{ asset('assets/js/loader.js') }}"></script>
+    <link rel="icon" href="{{ asset('favicon.ico') }}">
 </head>
 <body>
 <div class="edica-loader"></div>

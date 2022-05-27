@@ -7,9 +7,9 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 
-class IndexController extends Controller
+class BlogController extends Controller
 {
-    public function __invoke(): RedirectResponse
+    public function index(): RedirectResponse
     {
         return redirect()->route('post.index');
     }
