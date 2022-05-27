@@ -9,13 +9,11 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Models\User;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
-class IndexController extends Controller
+class BlogController extends Controller
 {
-    public function __invoke(): Factory|View|Application
+    public function index(): View
     {
         $data = [];
         $data['usersCount'] = User::all()->count();
